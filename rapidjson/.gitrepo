@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/Tencent/rapidjson.git
+	branch = master
+	commit = fcb23c2dbf561ec0798529be4f66394d3e4996d8
+	parent = bcd5dee842b6a1eb53ebdc7441b99535db05cb1a
+	method = merge
+	cmdver = 0.4.3

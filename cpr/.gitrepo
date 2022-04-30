@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/libcpr/cpr.git
+	branch = master
+	commit = df31d9327a68a80635beeff55b1df8bd07d2d3ea
+	parent = 2ecdf0ae2206389e6a917a0b65ffa758bd287683
+	method = merge
+	cmdver = 0.4.3

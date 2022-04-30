@@ -1,0 +1,30 @@
+{
+  "name" : "cpr",
+  "type" : "lib",
+  "clear_build_path" : true,
+  "next" : [
+    {
+      "clear_build_path" : false,
+      "build" : "cpp",
+      "build_in" : "cpr",
+      "copy" : [
+        {"../../cpr/include/" : "inc/"},
+        {"../../cpr/" : "src/"}
+      ],
+      "config" : {
+        "output_dir" : "build",
+        "cpp_version" : 11,
+        "next" : [
+          {
+            "build": "publish",
+            "run_when" : [
+              "release"
+            ],
+            "clear_build_path" : false,
+            "build_in" : "build"
+          }
+        ]
+      }
+    }
+  ]
+}

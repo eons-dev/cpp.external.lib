@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/steinwurf/platform.git
+	branch = master
+	commit = eb20d6f4735cf6bd199747f7dca09faf4663f028
+	parent = 9a7f7d708104fc3ba7ae4e17573cc59023b7af23
+	method = merge
+	cmdver = 0.4.3

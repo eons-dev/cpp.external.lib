@@ -1,27 +1,49 @@
 {
   "name" : "cpr",
   "type" : "lib",
-  "clear_build_path" : true,
-  "next" : [
+  "build_in": "cpr",
+  "clear_build_path" : false,
+  "next": [
     {
-      "clear_build_path" : false,
-      "build" : "cpp",
-      "build_in" : "cpr",
-      "copy" : [
-        {"../../cpr/include/" : "inc/"},
-        {"../../cpr/" : "src/"}
-      ],
+      "build" : "in_container",
       "config" : {
-        "output_dir" : "build",
-        "cpp_version" : 11,
-        "next" : [
+        "image" : "eons/img_generic-builder",
+        "copy_env" : [
+          "repo_username",
+          "repo_password"
+        ],
+        "next": [
           {
-            "build": "publish",
-            "run_when" : [
-              "release"
-            ],
             "clear_build_path" : false,
-            "build_in" : "build"
+            "build" : "arbitrary",
+            "copy" : [
+              {"../../../cpr/" : "cpr/"}
+            ],
+            "config" : {
+              "commands": [
+                "cd /mnt/env/cpr; mkdir build; cd build; cmake ..; make; make install",
+                "mkdir BUILD_COMPLETE",
+                "mkdir BUILD_COMPLETE/inc",
+                "mkdir BUILD_COMPLETE/lib",
+                "cp -rav /usr/local/include/cpr BUILD_COMPLETE/inc/",
+                "cp -rav /usr/local/include/curl BUILD_COMPLETE/inc/",
+                "cp -rav /usr/local/include/z* BUILD_COMPLETE/inc/",
+                "cp -rav /usr/local/lib/libcpr* BUILD_COMPLETE/lib/",
+                "cp -rav /usr/local/lib/libcurl* BUILD_COMPLETE/lib/",
+                "cp -rav /usr/local/lib/libz* BUILD_COMPLETE/lib/"
+              ],
+              "next" : [
+                {
+                  "build": "publish",
+                  "run_when" : [
+                    "release"
+                  ],
+                  "clear_build_path" : false,
+                  "build_in" : "BUILD_COMPLETE",
+                  "config": {}
+                }
+              ]
+            }
           }
         ]
       }

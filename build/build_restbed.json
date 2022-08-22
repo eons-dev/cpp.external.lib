@@ -1,7 +1,7 @@
 {
   "name" : "restbed",
   "type" : "lib",
-  "build_in": "cpr",
+  "build_in": "restbed",
   "clear_build_path" : false,
   "next": [
     {
@@ -21,7 +21,7 @@
             ],
             "config" : {
               "commands": [
-                "cd /mnt/env/restbed; mkdir build; cd build; cmake ..; make; make install",
+                "cd /mnt/env/restbed; mkdir build; cd build; cmake -DBUILD_SSL=NO -DBUILD_TESTS=NO ..; make; make install",
                 "mkdir BUILD_COMPLETE",
                 "mkdir BUILD_COMPLETE/inc",
                 "mkdir BUILD_COMPLETE/lib",
